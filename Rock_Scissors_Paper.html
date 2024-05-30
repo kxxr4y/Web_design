@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>가위바위보 게임</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .navbar {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+        .game-container {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            margin-top: 50px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 10px;
+        }
+        .message {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div>
+            <a href="guessnum.html">숫자 추측 게임</a>
+            <a href="remember_num.html">숫자 기억 게임</a>
+            <a href="Rock_Scissors_Paper.html">가위바위보</a>
+        </div>
+        <div>
+            <a href="index.html">메인 페이지</a>
+        </div>
+    </div>
+
+    <div class="game-container">
+        <h1>가위바위보 게임</h1>
+        <p>아래 버튼을 눌러 선택하세요:</p>
+        <button onclick="playGame('가위')">가위</button>
+        <button onclick="playGame('바위')">바위</button>
+        <button onclick="playGame('보')">보</button>
+        <div class="message" id="message"></div>
+    </div>
+
+    <script>
+        function playGame(userChoice) {
+            const choices = ['가위', '바위', '보'];
+            const computerChoice = choices[Math.floor(Math.random() * choices.length)];
+            const message = document.getElementById('message');
+
+            let result = '';
+
+            if (userChoice === computerChoice) {
+                result = `무승부! 컴퓨터도 ${computerChoice}를 선택했습니다.`;
+            } else if (
+                (userChoice === '가위' && computerChoice === '보') ||
+                (userChoice === '바위' && computerChoice === '가위') ||
+                (userChoice === '보' && computerChoice === '바위')
+            ) {
+                result = `이겼습니다! 컴퓨터는 ${computerChoice}를 선택했습니다.`;
+            } else {
+                result = `졌습니다. 컴퓨터는 ${computerChoice}를 선택했습니다.`;
+            }
+
+            message.textContent = result;
+        }
+    </script>
+</body>
+</html>

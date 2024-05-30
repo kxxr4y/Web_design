@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>숫자 기억 게임</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .navbar {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+        .game-container {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            margin-top: 50px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        #number {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        input {
+            padding: 10px;
+            font-size: 16px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .message {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div>
+            <a href="guessnum.html">숫자 추측 게임</a>
+            <a href="remember_num.html">숫자 기억 게임</a>
+            <a href="Rock_Scissors_Paper.html">가위바위보</a>
+        </div>
+        <div>
+            <a href="index.html">메인 페이지</a>
+        </div>
+    </div>
+
+    <div class="game-container">
+        <h1>숫자 기억 게임</h1>
+        <p id="number"></p>
+        <input type="number" id="guessInput" placeholder="숫자를 입력하세요" style="display: none;" />
+        <button id="startButton" onclick="startGame()">게임 시작</button>
+        <button id="checkButton" onclick="checkGuess()" style="display: none;">확인</button>
+        <div class="message" id="message"></div>
+    </div>
+
+    <script>
+        let randomNumber = 0;
+        let displayTime = 5;
+        let round = 1;
+
+        function startGame() {
+            randomNumber = Math.floor(Math.random() * 10000);
+            const numberElement = document.getElementById('number');
+            const startButton = document.getElementById('startButton');
+            const guessInput = document.getElementById('guessInput');
+            const checkButton = document.getElementById('checkButton');
+            const message = document.getElementById('message');
+
+            numberElement.textContent = randomNumber;
+            message.textContent = '';
+            startButton.style.display = 'none';
+
+            setTimeout(() => {
+                numberElement.textContent = '';
+                guessInput.style.display = 'block';
+                checkButton.style.display = 'block';
+                guessInput.focus();
+            }, displayTime * 1000);
+        }
+
+        function checkGuess() {
+            const guessInput = document.getElementById('guessInput');
+            const message = document.getElementById('message');
+            const startButton = document.getElementById('startButton');
+            const checkButton = document.getElementById('checkButton');
+
+            const userGuess = parseInt(guessInput.value);
+
+            if (userGuess === randomNumber) {
+                message.textContent = `정답입니다! ${round} 라운드를 성공했습니다.`;
+                round++;
+                displayTime = Math.max(1, displayTime - 0.5); // 최소 1초로 제한
+            } else {
+                message.textContent = `틀렸습니다. 정답은 ${randomNumber}입니다. ${round} 라운드에서 실패했습니다.`;
+                round = 1;
+                displayTime = 5;
+            }
+
+            guessInput.style.display = 'none';
+            checkButton.style.display = 'none';
+            startButton.style.display = 'block';
+            guessInput.value = '';
+        }
+    </script>
+</body>
+</html>

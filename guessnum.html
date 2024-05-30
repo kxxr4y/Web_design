@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>숫자 맞추기 게임</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .navbar {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+        .game-container {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            margin-top: 50px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        input {
+            padding: 10px;
+            font-size: 16px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .message {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div>
+            <a href="guessnum.html">숫자 추측 게임</a>
+            <a href="remember_num.html">숫자 기억 게임</a>
+            <a href="Rock_Scissors_Paper.html">가위바위보</a>
+        </div>
+        <div>
+            <a href="index.html">메인 페이지</a>
+        </div>
+    </div>
+
+    <div class="game-container">
+        <h1>숫자 맞추기 게임</h1>
+        <p>1부터 100 사이의 숫자를 맞춰보세요!</p>
+        <input type="number" id="guessInput" placeholder="숫자를 입력하세요" />
+        <button onclick="checkGuess()">맞추기</button>
+        <div class="message" id="message"></div>
+    </div>
+
+    <script>
+        let randomNumber = Math.floor(Math.random() * 100) + 1;
+        let attempts = 0;
+
+        function checkGuess() {
+            const guessInput = document.getElementById('guessInput');
+            const message = document.getElementById('message');
+            const userGuess = parseInt(guessInput.value);
+
+            if (isNaN(userGuess) || userGuess < 1 || userGuess > 100) {
+                message.textContent = '1부터 100 사이의 유효한 숫자를 입력하세요!';
+                return;
+            }
+
+            attempts++;
+
+            if (userGuess === randomNumber) {
+                message.textContent = `축하합니다! ${attempts}번 만에 맞췄어요! 정답은 ${randomNumber}였습니다.`;
+                resetGame();
+            } else if (userGuess < randomNumber) {
+                message.textContent = '너무 낮아요. 더 큰 숫자를 시도해보세요.';
+            } else {
+                message.textContent = '너무 높아요. 더 작은 숫자를 시도해보세요.';
+            }
+
+            guessInput.value = '';
+            guessInput.focus();
+        }
+
+        function resetGame() {
+            randomNumber = Math.floor(Math.random() * 100) + 1;
+            attempts = 0;
+            setTimeout(() => {
+                const message = document.getElementById('message');
+                message.textContent = '';
+            }, 5000);
+        }
+    </script>
+</body>
+</html>
