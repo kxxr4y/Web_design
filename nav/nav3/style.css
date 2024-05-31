@@ -19,10 +19,10 @@ a {
     float: left;
     text-align: center;
     line-height: 40px;
-    background-color: #5778ff;
+    background-color: skyblue;
 }
 .menu > li:hover {
-    background-color: #94a9ff;
+    background-color: pink;
     transition-duration: 0.5s;
 }
 .menu > li:hover .submenu {
@@ -34,9 +34,12 @@ a {
 }
 .submenu > li {
     line-height: 50px;
-    background-color: #94a9ff;
+    background-color: skyblue;
 }
 .submenu {
     height: 0;
     overflow: hidden;
+}
+.submenu > li:hover {
+    background-color: pink; /* 호버시 색상 변경 */
 }
