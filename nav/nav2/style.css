@@ -1,0 +1,47 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+header {
+    width: 1920px;
+    height: 80px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+nav {
+    width: 550px;
+    height: 75px;
+    margin-top: 20px;
+    margin-left: 20px;
+    background-color: skyblue;
+    border-radius: 10px;
+}
+nav ul {
+    width: 500px;
+    height: 75px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 10px;
+}
+nav ul li {
+    width: 80px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: lightblue;
+    border-radius: 10px;
+}
+nav ul li:hover {
+    background-color: black;
+    color: white;
+}
+nav ul li a {
+    text-decoration: none;
+    color: white;
+}
