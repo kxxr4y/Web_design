@@ -1,0 +1,30 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+main {
+    width: 100%;
+}
+nav {
+    width: 800px;
+    height: 35px;
+    margin: 0 auto;
+}
+nav ul li{
+    background-color: pink;
+    list-style: none;
+    float: left;
+    line-height: 70px;
+    text-align: center;
+}
+nav ul li a {
+    width: 320px;
+    text-decoration: none;
+    display: block;
+    color: skyblue;
+    font-weight: bold;
+}
+nav a:hover {
+    background-color: skyblue;
+    color: pink;
+}
