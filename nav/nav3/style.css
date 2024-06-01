@@ -11,15 +11,16 @@ a {
 }
 .menu {
     width: 800px;
-    overflow: hidden; /**/
+    overflow: hidden;
     margin: 150px auto;
+    border-radius: 10px;
 }
 .menu > li {
     width: 20%;
     float: left;
     text-align: center;
     line-height: 40px;
-    background-color: skyblue;
+    background-color: black;
 }
 .menu > li:hover {
     background-color: pink;
@@ -34,7 +35,7 @@ a {
 }
 .submenu > li {
     line-height: 50px;
-    background-color: skyblue;
+    background-color: black;
 }
 .submenu {
     height: 0;
