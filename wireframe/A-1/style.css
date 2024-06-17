@@ -1,63 +1,117 @@
 * {
-    margin: 0;
+    margin: 0 auto;
     padding: 0;
 }
-.wrap {
-    width: 1200px;
-    margin: 0 auto;
+ul, ol {
+    list-style: none;
 }
-.header {
-    background-color: pink;
-    display: flex;
+a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 15px;
 }
-.header .logo {
-    width: 250px;
-    height: 100px;
-    background-color: lightcyan;
-}
-.header .nav {
-    width: 950px;
-    height: 100px;
-    background-color: lightsalmon;
-}
-.slider {
+#wrap {
     width: 100%;
+}
+header {
+    width: 1200px;
+    height: 100px;
+    background-color: #ff6700;
+    display: flex;
+    position: relative;
+    z-index: 1000;
+}
+.logo {
+    width: 300px;
+    height: 100px;
+    line-height: 130px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+nav {
+    width: 900px;
+    height: 100px;
+}
+.menu {
+    width: 800px;
+    overflow: hidden;
+    margin: 30px auto;
+    z-index: 2;
+}
+.menu > li {
+    width: 15%;
+    float: right;
+    text-align: center;
+    line-height: 40px;
+}
+.menu > li:hover {
+    /* 메뉴 호버 */
+}
+.menu > li:hover .submenu {
+    height: 250px;
+    transition-duration: 0.5s;
+}
+.menu a {
+    color: #fff;
+}
+.submenu {
+    height: 0;
+    overflow: hidden;
+}
+.submenu > li {
+    line-height: 50px;
+    background-color: #ff6700;
+}
+.submenu > li:hover {
+    background-color: orangered;
+}
+main {
+    width: 1200px;
     height: 300px;
-    background-color: skyblue;
 }
-.contents {
+
+main > img {
+    width: 100%;
+}
+
+section {
+    width: 1200px;
+    height: 200px;
     display: flex;
 }
-.contents .content1 {
+.section1 {
     width: 400px;
     height: 200px;
-    background-color: lightgoldenrodyellow;
+    /* background-color: orange; */
 }
-.contents .content2 {
+.section2 {
     width: 400px;
     height: 200px;
-    background-color: lightgray;
+    /* background-color: purple; */
 }
-.contents .content3 {
+.section3 {
     width: 400px;
     height: 200px;
-    background-color: lightpink;
 }
-.footer {
+footer {
+    width: 1200px;
+    height: 100px;
     display: flex;
+    background-color: #004e98;
 }
-.footer .footer1 {
-    width: 250px;
+.footer1 {
+    width: 200px;
     height: 100px;
-    background-color: cyan;
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
-.footer .footer2 {
-    width: 700px;
+.footer2 {
+    width: 800px;
     height: 100px;
-    background-color: linen;
 }
-.footer .footer3 {
-    width: 250px;
+.footer3 {
+    width: 200px;
     height: 100px;
-    background-color: lightblue;
+    margin-left: 30px;
+    margin-top: 25px;
 }
