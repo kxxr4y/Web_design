@@ -1,0 +1,60 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.wrap{
+    width: 100%;
+}
+header{
+    width: 1600px;
+    height: 200px;
+    display: flex;
+    background-color: lightblue;
+}
+.logo{
+    width: 900px;
+    height: 200px;
+}
+.logo p{
+    font-size: 25px;
+    font-weight: bold;
+    margin: 60px;
+    margin-left: 200px;
+}
+.logo p span{
+    color: purple;
+}
+nav{
+    width: 1000px;
+    height: 200px;
+    margin: 0 auto;
+    margin-left: 300px;
+}
+nav ul li{
+    width: 210px;
+    list-style: none;
+    float: left;
+    line-height: 50px;
+    text-align: center;
+    margin-top: 80px;
+}
+nav ul li a{
+    width: 150px;
+    height: 50px;
+}
+nav ul li .a1 {
+    text-decoration: none;
+    display: block;
+    color: white;
+    background-color: purple;
+    border-radius: 10px;
+    font-weight: bold;
+}
+nav ul li .a2 {
+    text-decoration: none;
+    display: block;
+    color: purple;
+    background-color: white;
+    border-radius: 10px;
+    font-weight: bold;
+}
